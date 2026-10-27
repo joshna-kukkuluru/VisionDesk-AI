@@ -34,7 +34,6 @@ st.set_page_config(page_title="AI-Powered Visual Data Analytics and Business Int
 
 # ============================================================
 # PROFESSIONAL UI / UX STYLING
-# Frontend only - does not change backend functionality
 # ============================================================
 
 st.markdown("""
@@ -84,19 +83,35 @@ st.markdown("""
     }
 
 
-    /* ---------- NAVIGATION ---------- */
+/* ---------- NAVIGATION ---------- */
 
-    div[role="radiogroup"] label {
-        background: rgba(255,255,255,0.06);
-        border-radius: 10px;
-        padding: 9px 12px;
-        margin: 4px 0;
-        transition: all 0.2s ease;
-    }
+[data-testid="stSidebar"] div[role="radiogroup"] label {
+    background: rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin: 4px 0 6px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease-in-out;
+}
 
-    div[role="radiogroup"] label:hover {
-        background: rgba(255,255,255,0.13);
-    }
+/* Hover effect */
+[data-testid="stSidebar"] div[role="radiogroup"] label:hover {
+    background: rgba(59, 130, 246, 0.22);
+    border-color: #60a5fa;
+    transform: translateX(4px);
+    cursor: pointer;
+}
+
+/* Active / selected page */
+[data-testid="stSidebar"] div[role="radiogroup"] label:has(input:checked) {
+    background: linear-gradient(
+        90deg,
+        rgba(37, 99, 235, 0.42),
+        rgba(59, 130, 246, 0.16)
+    );
+    border-color: #60a5fa;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.18);
+}
 
 
     /* ---------- BUTTONS ---------- */
@@ -245,6 +260,244 @@ st.markdown("""
         color: #64748b;
         border-top: 1px solid #e5e7eb;
     }
+    
+/* Hover effect for Home page capability cards */
+.vd-card {
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease,
+                border-color 0.2s ease;
+}
+
+.vd-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
+    border-color: #2563eb;
+    cursor: pointer;
+}
+
+/* Sidebar navigation buttons */
+[data-testid="stSidebar"] div[role="radiogroup"] label {
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-bottom: 6px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Hover effect */
+[data-testid="stSidebar"] div[role="radiogroup"] label:hover {
+    background-color: rgba(59, 130, 246, 0.22);
+    border-color: #60a5fa;
+    transform: translateX(4px);
+    cursor: pointer;
+}
+
+/* Selected navigation button */
+[data-testid="stSidebar"] div[role="radiogroup"] label:has(input:checked) {
+    background: linear-gradient(
+        90deg,
+        rgba(37, 99, 235, 0.42),
+        rgba(59, 130, 246, 0.16)
+    );
+    border-color: #60a5fa;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.18);
+}
+
+/* Smooth text transition */
+[data-testid="stSidebar"] div[role="radiogroup"] label p {
+    transition: color 0.2s ease;
+}
+
+/* ---------- DASHBOARD HERO HOVER ---------- */
+
+.vd-hero {
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.vd-hero:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 35px rgba(37, 99, 235, 0.25);
+    cursor: pointer;
+}
+
+
+/* ---------- KPI CARDS HOVER ---------- */
+
+div[data-testid="stMetric"] {
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+    border: 1px solid #e5e7eb;
+}
+
+div[data-testid="stMetric"]:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.16);
+    border-color: #60a5fa;
+}
+
+
+/* ---------- KPI VALUE HIGHLIGHT ---------- */
+
+div[data-testid="stMetric"]:hover
+div[data-testid="stMetricValue"] {
+    color: #2563eb;
+    transition: color 0.25s ease;
+}
+
+
+/* ==========================================
+   DOCUMENT KNOWLEDGE BASE - PREMIUM UI
+========================================== */
+
+/* Page heading */
+.main h1 {
+    color: #172033 !important;
+    font-weight: 750;
+    letter-spacing: -0.6px;
+    margin-bottom: 0.6rem;
+}
+
+.main h2 {
+    color: #172033 !important;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Upload section */
+[data-testid="stFileUploader"] {
+    background: linear-gradient(135deg, #ffffff, #f4f8ff) !important;
+    border: 1px solid #d7e5fa !important;
+    border-radius: 16px !important;
+    padding: 16px !important;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+[data-testid="stFileUploader"]:hover {
+    border-color: #60a5fa !important;
+    box-shadow: 0 8px 22px rgba(37, 99, 235, 0.10);
+}
+
+/* Upload file dropzone */
+[data-testid="stFileUploaderDropzone"] {
+    background: #ffffff !important;
+    border: 1.5px dashed #b8c9e2 !important;
+    border-radius: 12px !important;
+}
+
+/* Add to knowledge base button */
+[data-testid="stButton"] button {
+    background: linear-gradient(135deg, #1d4ed8, #2563eb) !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    border: 1px solid #2563eb !important;
+    border-radius: 10px !important;
+    min-height: 44px;
+    padding: 0.65rem 1.15rem !important;
+    font-weight: 600 !important;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.12);
+    transition: background 0.2s ease, box-shadow 0.2s ease,
+                transform 0.2s ease;
+}
+
+/* Force button label to remain white */
+[data-testid="stButton"] button p,
+[data-testid="stButton"] button span {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+[data-testid="stButton"] button:hover {
+    background: #1e40af !important;
+    border-color: #1e40af !important;
+    box-shadow: 0 7px 18px rgba(37, 99, 235, 0.22);
+    transform: translateY(-2px);
+}
+
+/* Documents table */
+[data-testid="stTable"] {
+    border: 1px solid #dbe5f2 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
+}
+
+[data-testid="stTable"] table {
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #ffffff !important;
+}
+
+[data-testid="stTable"] thead th {
+    background: #edf4ff !important;
+    color: #1e3a8a !important;
+    font-weight: 700 !important;
+    border-bottom: 1px solid #dbeafe !important;
+}
+
+[data-testid="stTable"] tbody td {
+    color: #334155 !important;
+    border-bottom: 1px solid #edf2f7 !important;
+}
+
+/* Search input */
+[data-testid="stTextInput"] input {
+    background: #ffffff !important;
+    color: #1e293b !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 10px !important;
+    box-shadow: none !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+[data-testid="stTextInput"] input:hover {
+    border-color: #93baf7 !important;
+}
+
+[data-testid="stTextInput"] input:focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.13) !important;
+    outline: none !important;
+}
+
+[data-testid="stTextInput"] label {
+    color: #475569 !important;
+    font-weight: 600 !important;
+}
+
+/* Search results */
+[data-testid="stAlert"] {
+    border-radius: 12px !important;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .main .block-container {
+        padding: 1.2rem 1rem 2rem;
+    }
+
+    .main h1 {
+        font-size: 1.7rem;
+    }
+
+    .main h2 {
+        font-size: 1.3rem;
+    }
+}
+
+
+/* Documents table */
+[data-testid="stTable"] {
+    border: 1px solid #dbeafe !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: 0 5px 16px rgba(15, 23, 42, 0.05) !important;
+}
+
 
 </style>
 """, unsafe_allow_html=True)
